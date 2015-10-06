@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1444136043 source:j:\projects\cse225\itemtypeprojectwithpointer\itemtype.cpp
+	"ItemType.h"
+
+1444135750 j:\projects\cse225\itemtypeprojectwithpointer\itemtype.h
+	<fstream>
+	<iostream>
+
+1383686515 source:j:\projects\cse225\itemtypeprojectwithpointer\main.cpp
+	<iostream>
+
