@@ -2,27 +2,30 @@
 #include<stack>
 #include<string>
 
-bool is_open(char symbol); // if char is opening bracket
-bool is_close(char symbol); // if char is closing bracket
-bool matches(char symbol, char open_symbol); // if brackets are of same type, i.e. curly or square
+// Function prototypes.
+bool is_open(char symbol);
+bool is_close(char symbol);
+bool matches(char symbol, char open_symbol);
 
 int main()
 {
-    std::string expressions[] = {"({})", "(()){}()", "()", "{}", "({}(", "){})", "(()"}; // test strings
-    std::string expression; // candidate string
+    // Test strings.
+    std::string expressions[] = {"({})", "(()){}()", "()", "{}", "({}(", "){})", "(()"};
+    std::string expression;
     std::stack<char> s;
-    int num_expressions = 7; // # of test strings
-    int i, turn, limit; // loop parameters
+    // Number of test strings.
+    int num_expressions = 7;
+    int i, turn, limit;
     bool balanced;
     char open_symbol, c;
 
-    for(turn = 0; turn < num_expressions; turn++)
+    for(turn = 0; turn < num_expressions; ++turn)
     {
         expression = expressions[turn];
         balanced = true;
         limit = expression.size();
 
-        for(i = 0; i < limit; i++)
+        for(i = 0; i < limit; ++i)
         {
             c = expression[i];
 
@@ -59,20 +62,22 @@ int main()
 
         if(balanced && s.empty())
         {
-            std::cout<<expression<<" is balanced\n";
+            std::cout << expression << " is balanced\n";
         }
 
         else
         {
-            std::cout<<expression<<" is not balanced\n";
+            std::cout << expression << " is not balanced\n";
         }
 
-        s = std::stack<char>(); // reset stack for next iteration
+        // Reset stack for next iteration.
+        s = std::stack<char>();
     }
 
     return 0;
 }
 
+// Checks if char is opening bracket.
 bool is_open(char symbol)
 {
     if(symbol == '(' || symbol == '[' || symbol == '{')
@@ -83,6 +88,7 @@ bool is_open(char symbol)
     return false;
 }
 
+// Checks if char is closing bracket.
 bool is_close(char symbol)
 {
     if(symbol == ')' || symbol == ']' || symbol == '}')
@@ -93,7 +99,9 @@ bool is_close(char symbol)
     return false;
 }
 
+// Checks if brackets match.
 bool matches(char symbol, char open_symbol)
 {
-    return ((open_symbol == '(' && symbol == ')') || (open_symbol == '{' && symbol == '}') || (open_symbol == '[' && symbol == ']'));
+    return ((open_symbol == '(' && symbol == ')') || (open_symbol == '{' && symbol == '}') 
+        || (open_symbol == '[' && symbol == ']'));
 }
