@@ -1,42 +1,35 @@
-#include <iostream>
 #include <cmath>
-
-using namespace std;
+#include <cstdio>
+#include <iostream>
 
 int fibonacci(int n);
 int factorial(int n);
 int sumDigits(int n);
 int findMin(int a[], int size);
 void decimalToBinary(int n);
-double sumSeries(int n); // 1 + 1/2 + 1/4 + 1/8 + ... + 1/2n
+double sumSeries(int n);
 
 int main()
 {
     int n;
-    cout<<"Fibonacci term#";
-    cin>>n;
-    cout<<"Fibonacchi term: "<<fibonacci(n)<<endl;
-
-    cout<<"Factorial: ";
-    cin>>n;
-    cout<<"Factorial: "<<factorial(n)<<endl;
-
-    cout<<"Sum of digits: ";
-    cin>>n;
-    cout<<"Sum of digits: "<<sumDigits(n)<<endl;
-
+    printf("Fibonacci term#");
+    scanf("%d", &n);
+    printf("Fibonacci term: %d\n", fibonacci(n));
+    printf("Factorial:");
+    scanf("%d", &n);
+    printf("Factorial: %d\n", factorial(n));
+    printf("Sum of digits:");
+    scanf("%d", &n);
+    printf("Sum of digits: %d\n", sumDigits(n));
     int a[] = {5, 4, 3, 7, 2, 0, 6, 5};
-    cout<<"Find minimum: "<<findMin(a, 8)<<endl;
-
-    cout<<"Decimal: ";
-    cin>>n;
-    cout<<"Binary: ";
+    printf("Find minimum: %d\n", findMin(a, 8));
+    printf("Decimal: ");
+    scanf("%d", &n);
+    printf("Binary:");
     decimalToBinary(n);
-
-    cout<<"\nSum of series: ";
-    cin>>n;
-    cout<<"Sum of series: "<<sumSeries(n)<<endl;
-
+    printf("Sum of series: ");
+    scanf("%d", &n);
+    printf("Sum of series: %ld\n", sumSeries(n));
     return 0;
 }
 
@@ -88,7 +81,7 @@ void decimalToBinary(int n)
     if(n > 0)
     {
         decimalToBinary(n / 2);
-        cout<<n % 2;
+        printf("%d", n % 2);
     }
 }
 
