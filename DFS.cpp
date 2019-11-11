@@ -1,6 +1,4 @@
-/*
- * Implementation of DFS (Depth First Search)
- */
+// Implementation of DFS (Depth First Search).
 
 #include <cstdio>
 #include <list>>
