@@ -1,10 +1,7 @@
 #ifndef BST_H
 #define BST_H
 
-#include <iostream>
 #include "queuetype.h"
-
-using namespace std;
 
 template <class ItemType>
 struct Node

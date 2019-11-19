@@ -47,7 +47,7 @@ bool BST<ItemType>::isFull()
         delete b;
         return false;
     }
-    catch(bad_alloc e)
+    catch(std::bad_alloc e)
     {
         return true;
     }

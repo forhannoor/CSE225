@@ -2,7 +2,6 @@
 #define QUEUETYPE_H
 
 #include <iostream>
-using namespace std;
 
 template <class ItemType>
 struct NodeType
