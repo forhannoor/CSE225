@@ -43,10 +43,14 @@ void QueueType<ItemType>::Enqueue(ItemType i)
         location->next = NULL;
 
         if(rear == NULL)
+        {
             front = location;
+        }
 
         else
+        {
             rear->next = location;
+        }
 
         rear = location;
     }
@@ -68,7 +72,9 @@ void QueueType<ItemType>::Dequeue(ItemType &i)
         front = front->next;
 
         if(front == NULL)
+        {
             rear == NULL;
+        }
 
         delete temp;
     }
@@ -84,13 +90,14 @@ template<class ItemType>
 bool QueueType<ItemType>::IsFull()
 {
     NodeType<ItemType>* location;
+
     try
     {
         location = new NodeType<ItemType>;
         delete location;
         return false;
     }
-    catch(bad_alloc& exception)
+    catch(std::bad_alloc& exception)
     {
         return true;
     }

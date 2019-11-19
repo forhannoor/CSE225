@@ -8,17 +8,21 @@ ItemType::ItemType()
 RelationType ItemType::ComparedTo(ItemType otherItem)
 {
     if(value > otherItem.value)
+    {
         return GREATER;
+    }
 
     else if(value < otherItem.value)
+    {
         return LESS;
+    }
 
     return EQUAL;
 }
 
-void ItemType::Print(ofstream &o)
+void ItemType::Print(std::ofstream &o)
 {
-    o<<value<<endl;
+    o << value << "\n";
 }
 
 void ItemType::Initialize(int number)

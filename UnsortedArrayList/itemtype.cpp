@@ -8,10 +8,19 @@ ItemType::ItemType()
 RelationType ItemType::ComparedTo(ItemType i)
 {
     if (value < i.value)
+    {
         return LESS;
+    }
+
     else if (value > i.value)
+    {
         return GREATER;
-    else return EQUAL;
+    }
+
+    else
+    {
+        return EQUAL;
+    }
 }
 
 void ItemType::Initialize(int number)
@@ -21,5 +30,5 @@ void ItemType::Initialize(int number)
 
 void ItemType::Print()
 {
-    cout << value << " ";
+    printf("%d ", value);
 }

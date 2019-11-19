@@ -1,7 +1,5 @@
 #include "stacktype.h"
 
-using namespace std;
-
 int main()
 {
     StackType s;
@@ -18,12 +16,11 @@ int main()
     i.initialize(3);
     s.push(i);
     s.printStack();
-
     s.pop();
     s.printStack();
     s.pop();
     s.printStack();
     s.Top().print();
-    cout<<s.sumOdd();
+    printf("%d\n", s.sumOdd());
     return 0;
 }

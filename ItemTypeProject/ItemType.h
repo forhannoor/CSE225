@@ -3,7 +3,6 @@
 
 #include <fstream>
 #include <iostream>
-using namespace std;
 
 enum RelationType {LESS, GREATER, EQUAL};
 
@@ -15,7 +14,7 @@ class ItemType
     public:
         ItemType();
         RelationType ComparedTo(ItemType otherItem);
-        void Print(ofstream &o);
+        void Print(std::ofstream &o);
         void Initialize(int number);
 };
 

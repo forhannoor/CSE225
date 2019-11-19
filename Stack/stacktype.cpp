@@ -19,38 +19,47 @@ void StackType::push(ItemType i)
 {
     if(! isFull())
     {
-        top++;
-        items[top] = i;
+        items[++top] = i;
     }
 }
 
 void StackType::pop()
 {
     if(! isEmpty())
-        top--;
+    {
+        --top;
+    }
 }
 
 ItemType StackType::Top()
 {
     if(! isEmpty())
+    {
         return items[top];
+    }
 }
 
 void StackType::printStack()
 {
-    for(int i = top; i >= 0; i--)
+    for(int i = top; i >= 0; --i)
+    {
         items[i].print();
+    }
 
-    cout<<endl;
+    printf("\n");
 }
 
 int StackType::sumOdd()
 {
     int sum = 0;
 
-    for(int i = top; i >= 0; i--)
+    for(int i = top; i >= 0; --i)
+    {
         if(items[i].getValue() % 2 == 1)
+        {
             sum += items[i].getValue();
+        }
+    }
 
     return sum;
 }
