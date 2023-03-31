@@ -1,13 +1,11 @@
-#include<iostream>
-#include<string.h>
+#include<cstdio>
+#include<cstring>
+
 #define TABLE_SIZE 128
-
-using namespace std;
-
 
 class HashNode
 {
-public:
+    public:
     int key;
     int value;
     HashNode* next;
@@ -16,14 +14,16 @@ public:
 
 class Hash
 {
-
+    private:
     HashNode** table;
-public:
+
+    public:
     Hash()
     {
         table = new HashNode*[TABLE_SIZE];
         memset(table, 0, TABLE_SIZE*sizeof(HashNode*));
     }
+
     int operator[](int key)
     {
         return (this->search(key));
@@ -34,85 +34,97 @@ public:
         return (k % TABLE_SIZE);
     }
 
-    void insert(int k, int v)
+    void insert(int key, int value)
     {
-        int h = hash_key(k);
+        int h = hash_key(key);
+
         if (table[h])
         {
             HashNode* current = table[h];
             HashNode* previous = NULL;
+
             while (current)
             {
                 previous = current;
                 current = current->next;
             }
-            previous->next = new HashNode(k, v);
+
+            previous->next = new HashNode(key, value);
         }
+
         else
         {
-            HashNode* _new = new HashNode(k, v);
+            HashNode* _new = new HashNode(key, value);
             table[h] = _new;
         }
     }
 
-    int search(int k)
+    int search(int key)
     {
-        int h = hash_key(k);
+        int h = hash_key(key);
         HashNode* current = table[h];
+
         if (current == 0)
         {
-            cout<<"Element not found\n";
+            printf("Element not found\n");
             return -1;
         }
-        while (current->key != k)
+
+        while (current->key != key)
         {
             current = current->next;
+
             if (!current)
             {
-                cout<<"Element not found\n";
+                printf("Element not found\n");
                 return -1;
             }
         }
-        cout<<"Element found\n";
+
+        printf("Element found\n");
         return current->value;
     }
 
 };
 
-
-
 int main()
 {
     Hash h;
+
     while (true)
     {
-        cout<<"Select action:-\n1-Insert element\n2-Search element\n3-Exit\n";
-        int n;
-        cin>>n;
-        if (n == 1)
+        int choice;
+        printf("Select action:-\n1-Insert element\n2-Search element\n3-Exit\n");
+        scanf("%d", &choice);
+
+        if (choice == 1)
         {
             int key, value;
-            cout<<"Enter key:\n";
-            cin>>key;
-            cout<<"Enter value:\n";
-            cin>>value;
+            printf("Enter key:\n");
+            scanf("%d", &key);
+            printf("Enter value:\n");
+            scanf("%d", &value);
             h.insert(key, value);
         }
-        else if (n == 2)
+
+        else if (choice == 2)
         {
             int key;
-            cout<<"Enter key:\n";
-            cin>>key;
-            cout<<h[key]<<"\n";
+            printf("Enter key:\n");
+            scanf("%d", &key);
+            printf("%d\n", h[key]);
         }
-        else if (n == 3)
+
+        else if (choice == 3)
         {
             break;
         }
+
         else
         {
-            cout<<"Invalid option\n";
+            printf("Invalid option\n");
         }
     }
+
     return 0;
 }

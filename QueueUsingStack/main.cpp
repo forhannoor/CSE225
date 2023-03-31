@@ -1,4 +1,5 @@
 #include "QueueType.cpp"
+#include <iostream>
 
 int main()
 {
@@ -7,9 +8,9 @@ int main()
     q.Enqueue(2);
     q.Enqueue(3);
     q.Enqueue(4);
-    cout<<q.Dequeue();
-    cout<<q.Dequeue();
-    cout<<q.Dequeue();
-    cout<<q.Dequeue();
+    std::cout<<q.Dequeue();
+    std::cout<<q.Dequeue();
+    std::cout<<q.Dequeue();
+    std::cout<<q.Dequeue();
     return 0;
 }

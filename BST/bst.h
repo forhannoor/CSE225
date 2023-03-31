@@ -1,7 +1,6 @@
 #ifndef BST_H
 #define BST_H
 
-#include <iostream>
 #include "queuetype.h"
 
 template <class ItemType>

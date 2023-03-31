@@ -1,8 +1,7 @@
 #ifndef ITEMTYPE_H
 #define ITEMTYPE_H
 
-#include <iostream>
-using namespace std;
+#include <cstdio>
 
 const int MAX_ITEMS = 5;
 

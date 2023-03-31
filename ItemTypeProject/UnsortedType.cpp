@@ -26,20 +26,19 @@ void UnsortedType::GetItem(ItemType &item, bool &found)
 {
     found = false;
 
-    for(int i = 0; i < length; i++)
+    for(int i = 0; i < length && !found; ++i)
     {
         if(info[i].ComparedTo(item) == EQUAL)
         {
             item = info[i];
             found = true;
-            break;
         }
     }
 }
 
 void UnsortedType::InsertItem(ItemType i)
 {
-    currentPos++;
+    ++currentPos;
 
     if(currentPos < length)
     {
@@ -53,11 +52,11 @@ void UnsortedType::DeleteItem(ItemType i)
 
     while(info[location].ComparedTo(i) != EQUAL)
     {
-        location++;
+        ++location;
     }
 
     info[location] = info[length - 1];
-    length--;
+    --length;
 }
 
 void UnsortedType::ResetList()
@@ -67,6 +66,6 @@ void UnsortedType::ResetList()
 
 ItemType UnsortedType::GetNextItem()
 {
-    currentPos++;
+    ++currentPos;
     return info[currentPos];
 }

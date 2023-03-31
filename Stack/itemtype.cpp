@@ -12,7 +12,7 @@ void ItemType::initialize(int v)
 
 void ItemType::print()
 {
-    cout<<value<<" ";
+    printf("%d ", value);
 }
 
 int ItemType::getValue()

@@ -48,7 +48,7 @@ bool UnsortedType::isFull()
         delete location;
         return false;
     }
-    catch(bad_alloc exception)
+    catch(std::bad_alloc exception)
     {
         return true;
     }
@@ -107,7 +107,7 @@ void UnsortedType::DeleteItem(ItemType i)
         }
 
         delete tempLocation;
-        length--;
+        --length;
     }
 }
 

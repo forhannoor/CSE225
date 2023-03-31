@@ -28,6 +28,5 @@ void UnsortedType::ResetList()
 
 void UnsortedType::GetNextItem(ItemType &i)
 {
-    currentPos++;
-    i = info [currentPos] ;
+    i = info [++currentPos] ;
 }

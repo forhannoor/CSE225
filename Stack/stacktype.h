@@ -2,6 +2,7 @@
 #define STACKTYPE_H
 
 #include "itemtype.h"
+#include <cstdio>
 
 class StackType
 {

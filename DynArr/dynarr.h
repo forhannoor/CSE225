@@ -1,7 +1,6 @@
 #ifndef DYNARR_H
 #define DYNARR_H
 #include <iostream>
-using namespace std;
 
 class dynArr
 {

@@ -85,7 +85,7 @@ bool StackType<ItemType>::IsFull()
         delete location;
         return false;
     }
-    catch(bad_alloc e)
+    catch(std::bad_alloc e)
     {
         return true;
     }
