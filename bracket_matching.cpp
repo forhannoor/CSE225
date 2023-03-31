@@ -1,107 +1,102 @@
-#include<iostream>
 #include<stack>
 #include<string>
+#include<cstdio>
 
-// Function prototypes.
+// Determines if char is an opening bracket symbol.
 bool is_open(char symbol);
+// Determines if char is a closing bracket symbol.
 bool is_close(char symbol);
+// Determines if char symbols matches.
 bool matches(char symbol, char open_symbol);
 
 int main()
 {
-    // Test strings.
-    std::string expressions[] = {"({})", "(()){}()", "()", "{}", "({}(", "){})", "(()"};
-    std::string expression;
-    std::stack<char> s;
-    // Number of test strings.
+    // Sample strings to run the program on.
+    std::string sample_inputs[] = {"({})", "(()){}()", "()", "{}", "({}(", "){})", "(()"};
+    std::string current_input;
+    std::stack<char> temp;
+    // Number of input strings.
     int num_expressions = 7;
     int i, turn, limit;
-    bool balanced;
+    bool is_balanced;
     char open_symbol, c;
 
     for(turn = 0; turn < num_expressions; ++turn)
     {
-        expression = expressions[turn];
-        balanced = true;
-        limit = expression.size();
+        current_input = sample_inputs[turn];
+        is_balanced = true;
+        // Length of input string.
+        limit = current_input.size();
 
         for(i = 0; i < limit; ++i)
         {
-            c = expression[i];
-
+            c = current_input[i];
+            // If char is opening bracket symbol.
             if(is_open(c))
             {
-                s.push(c);
+                temp.push(c);
             }
-
+            // If char is closing bracket symbol.
             else if(is_close(c))
             {
-                if(s.empty())
+                // If stack is empty, meaning it doesn't contain the opening bracket symbol.
+                if(temp.empty())
                 {
-                    balanced = false;
+                    is_balanced = false;
                     break;
                 }
-
                 else
                 {
-                    open_symbol = s.top();
-                    balanced = matches(c, open_symbol);
+                    // Access the top element of stack, which is also the last item inserted.
+                    open_symbol = temp.top();
+                    is_balanced = matches(c, open_symbol);
 
-                    if(balanced)
+                    if(is_balanced)
                     {
-                        s.pop();
+                        // Remove last item from stack.
+                        temp.pop();
                     }
-
                     else
                     {
-                        balanced = false;
+                        is_balanced = false;
                     }
                 }
             }
         }
 
-        if(balanced && s.empty())
+        if(is_balanced && temp.empty())
         {
-            std::cout << expression << " is balanced\n";
+            printf("%s is balanced\n", current_input.c_str());
         }
-
         else
         {
-            std::cout << expression << " is not balanced\n";
+            printf("%s is not balanced\n", current_input.c_str());
         }
 
         // Reset stack for next iteration.
-        s = std::stack<char>();
+        temp = std::stack<char>();
     }
 
     return 0;
 }
 
-// Checks if char is opening bracket.
+// Determines if char is an opening bracket symbol.
 bool is_open(char symbol)
 {
-    if(symbol == '(' || symbol == '[' || symbol == '{')
-    {
-        return true;
-    }
-
-    return false;
+    return (symbol == '(' || symbol == '[' || symbol == '{');
 }
 
-// Checks if char is closing bracket.
+// Determines if char is a closing bracket symbol.
 bool is_close(char symbol)
 {
-    if(symbol == ')' || symbol == ']' || symbol == '}')
-    {
-        return true;
-    }
-
-    return false;
+    return (symbol == ')' || symbol == ']' || symbol == '}');
 }
 
-// Checks if brackets match.
+// Determines if char symbols matches.
+// Both should belong to the same type of bracket.
+// Symbol should be closing bracket while open_symbol is opening bracket.
 bool matches(char symbol, char open_symbol)
 {
-    return ((open_symbol == '(' && symbol == ')') || (open_symbol == '{' && symbol == '}') 
+    return ((open_symbol == '(' && symbol == ')') || (open_symbol == '{' && symbol == '}')
         || (open_symbol == '[' && symbol == ']'));
 }
