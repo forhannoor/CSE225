@@ -1,11 +1,10 @@
 #ifndef DYNARR_H
 #define DYNARR_H
-#include <iostream>
 
 class dynArr
 {
     private:
-        int *data;
+        int* data;
         int size;
 
     public:
@@ -16,4 +15,4 @@ class dynArr
        int get(int index);
 };
 
-#endif // DYNARR_H
+#endif
