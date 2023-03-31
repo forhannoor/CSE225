@@ -1,6 +1,5 @@
-#include <cmath>
 #include <cstdio>
-#include <iostream>
+#include <cmath>
 
 int fibonacci(int n);
 int factorial(int n);
@@ -72,7 +71,6 @@ int findMin(int a[], int size)
 
     int c = a[size - 1];
     int d = findMin(a, size - 1);
-
     return (c < d) ? c : d;
 }
 
@@ -91,7 +89,6 @@ double sumSeries(int n)
     {
         return 1;
     }
-
     else
     {
         return (1 / pow(2, n)) + sumSeries(n - 1);

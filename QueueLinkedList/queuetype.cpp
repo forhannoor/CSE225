@@ -9,13 +9,13 @@ QueueType<ItemType>::QueueType()
 template <class ItemType>
 QueueType<ItemType>::~QueueType()
 {
-    MakeEmpty();
+    make_empty();
 }
 
 template <class ItemType>
-void QueueType<ItemType>::MakeEmpty()
+void QueueType<ItemType>::make_empty()
 {
-    NodeType<ItemType> *temp;
+    NodeType<ItemType>* temp;
 
     while(front != NULL)
     {
@@ -28,16 +28,15 @@ void QueueType<ItemType>::MakeEmpty()
 }
 
 template <class ItemType>
-void QueueType<ItemType>::Enqueue(ItemType i)
+void QueueType<ItemType>::enqueue(ItemType i)
 {
-    if(IsFull())
+    if(is_full())
     {
         throw FullQueue();
     }
-
     else
     {
-        NodeType<ItemType> *location;
+        NodeType<ItemType>* location;
         location = new NodeType<ItemType>;
         location->info = i;
         location->next = NULL;
@@ -46,7 +45,6 @@ void QueueType<ItemType>::Enqueue(ItemType i)
         {
             front = location;
         }
-
         else
         {
             rear->next = location;
@@ -57,16 +55,15 @@ void QueueType<ItemType>::Enqueue(ItemType i)
 }
 
 template <class ItemType>
-void QueueType<ItemType>::Dequeue(ItemType &i)
+void QueueType<ItemType>::dequeue(ItemType &i)
 {
-    if(IsEmpty())
+    if(is_empty())
     {
         throw EmptyQueue();
     }
-
     else
     {
-        NodeType<ItemType> *temp;
+        NodeType<ItemType>* temp;
         temp = front;
         i = front->info;
         front = front->next;
@@ -81,13 +78,13 @@ void QueueType<ItemType>::Dequeue(ItemType &i)
 }
 
 template <class ItemType>
-bool QueueType<ItemType>::IsEmpty()
+bool QueueType<ItemType>::is_empty()
 {
     return (front == NULL);
 }
 
 template<class ItemType>
-bool QueueType<ItemType>::IsFull()
+bool QueueType<ItemType>::is_full()
 {
     NodeType<ItemType>* location;
 

@@ -19,14 +19,15 @@ class QueueType
     public:
         QueueType();
         ~QueueType();
-        void MakeEmpty();
-        void Enqueue(ItemType);
-        void Dequeue(ItemType&);
-        bool IsEmpty();
-        bool IsFull();
+        void make_empty();
+        void enqueue(ItemType);
+        void dequeue(ItemType&);
+        bool is_empty();
+        bool is_full();
+
     private:
-        NodeType<ItemType> *front;
-        NodeType<ItemType> *rear;
+        NodeType<ItemType>* front;
+        NodeType<ItemType>* rear;
 };
 
-#endif // QUEUETYPE_H
+#endif
