@@ -2,70 +2,70 @@
 
 UnsortedType::UnsortedType()
 {
-    length = 0;
-    currentPos = -1;
+    _length = 0;
+    _current_pos = -1;
 }
 
-void UnsortedType::MakeEmpty()
+void UnsortedType::make_empty()
 {
-    length = 0;
-    currentPos = -1;
+    _length = 0;
+    _current_pos = -1;
 }
 
-int UnsortedType::GetLength()
+int UnsortedType::get_length()
 {
-    return length;
+    return _length;
 }
 
-bool UnsortedType::isFull()
+bool UnsortedType::is_full()
 {
-    return (length == MAX_ITEMS);
+    return (_length == MAX_ITEMS);
 }
 
-void UnsortedType::GetItem(ItemType &item, bool &found)
+void UnsortedType::get_item(ItemType& item, bool& found)
 {
     found = false;
 
-    for(int i = 0; i < length && !found; ++i)
+    for(int i = 0; i < _length && !found; ++i)
     {
-        if(info[i].ComparedTo(item) == EQUAL)
+        if(_info[i].compared_to(item) == EQUAL)
         {
-            item = info[i];
+            item = _info[i];
             found = true;
         }
     }
 }
 
-void UnsortedType::InsertItem(ItemType i)
+void UnsortedType::insert_item(ItemType i)
 {
-    ++currentPos;
+    ++_current_pos;
 
-    if(currentPos < length)
+    if(_current_pos < _length)
     {
-        info[currentPos] = i;
+        _info[_current_pos] = i;
     }
 }
 
-void UnsortedType::DeleteItem(ItemType i)
+void UnsortedType::delete_item(ItemType i)
 {
     int location = 0;
 
-    while(info[location].ComparedTo(i) != EQUAL)
+    while(_info[location].compared_to(i) != EQUAL)
     {
         ++location;
     }
 
-    info[location] = info[length - 1];
-    --length;
+    _info[location] = _info[_length - 1];
+    --_length;
 }
 
-void UnsortedType::ResetList()
+void UnsortedType::reset_list()
 {
-    currentPos = -1;
+    _current_pos = -1;
 }
 
-ItemType UnsortedType::GetNextItem()
+ItemType UnsortedType::get_next_item()
 {
-    ++currentPos;
-    return info[currentPos];
+    ++_current_pos;
+    return _info[_current_pos];
 }

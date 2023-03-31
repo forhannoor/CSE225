@@ -2,17 +2,16 @@
 
 ItemType::ItemType()
 {
-    value = 0;
+    _value = 0;
 }
 
-RelationType ItemType::ComparedTo(ItemType otherItem)
+RelationType ItemType::compared_to(ItemType other_item)
 {
-    if(value > otherItem.value)
+    if(_value > other_item._value)
     {
         return GREATER;
     }
-
-    else if(value < otherItem.value)
+    else if(_value < other_item._value)
     {
         return LESS;
     }
@@ -20,12 +19,12 @@ RelationType ItemType::ComparedTo(ItemType otherItem)
     return EQUAL;
 }
 
-void ItemType::Print(std::ofstream &o)
+void ItemType::print(std::ofstream& ofs)
 {
-    o << value << "\n";
+    ofs << _value << "\n";
 }
 
-void ItemType::Initialize(int number)
+void ItemType::initialize(int number)
 {
-    value = number;
+    _value = number;
 }

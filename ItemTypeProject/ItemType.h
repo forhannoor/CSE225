@@ -1,6 +1,5 @@
 #ifndef ITEMTYPE_H
 #define ITEMTYPE_H
-
 #include <fstream>
 #include <iostream>
 
@@ -9,13 +8,13 @@ enum RelationType {LESS, GREATER, EQUAL};
 class ItemType
 {
     private:
-        int value;
+        int _value;
 
     public:
         ItemType();
-        RelationType ComparedTo(ItemType otherItem);
-        void Print(std::ofstream &o);
-        void Initialize(int number);
+        RelationType compared_to(ItemType other_item);
+        void print(std::ofstream& ofs);
+        void initialize(int number);
 };
 
-#endif // ITEMTYPE_H
+#endif
