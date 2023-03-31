@@ -7,28 +7,27 @@ template <class ItemType>
 QueueType<ItemType>::~QueueType(){}
 
 template <class ItemType>
-void QueueType<ItemType>::Enqueue(ItemType item)
+void QueueType<ItemType>::enqueue(ItemType item)
 {
-    BLACK.Push(item);
+    BLACK.push(item);
 }
 
 template <class ItemType>
-ItemType QueueType<ItemType>::Dequeue()
+ItemType QueueType<ItemType>::dequeue()
 {
     ItemType i;
 
-    if(WHITE.IsEmpty())
+    if(WHITE.is_empty())
     {
-        while(! BLACK.IsEmpty())
+        while(! BLACK.is_empty())
         {
-            ItemType temp = BLACK.Top();
-            BLACK.Pop();
-            WHITE.Push(temp);
+            ItemType temp = BLACK.top();
+            BLACK.pop();
+            WHITE.push(temp);
         }
     }
 
-    i = WHITE.Top();
-    WHITE.Pop();
-
+    i = WHITE.top();
+    WHITE.pop();
     return i;
 }

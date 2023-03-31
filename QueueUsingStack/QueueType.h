@@ -12,8 +12,8 @@ class QueueType
     public:
         QueueType();
         ~QueueType();
-        void Enqueue(ItemType item);
-        ItemType Dequeue();
+        void enqueue(ItemType item);
+        ItemType dequeue();
 };
 
-#endif // QUEUETYPE_H
+#endif

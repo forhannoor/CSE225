@@ -3,81 +3,78 @@
 template <class ItemType>
 StackType<ItemType>::StackType()
 {
-    topPtr = NULL;
+    _top_ptr = NULL;
 }
 
 template <class ItemType>
 StackType<ItemType>::~StackType()
 {
-    NodeType <ItemType> *temp;
+    NodeType <ItemType>* temp;
 
-    while(topPtr != NULL)
+    while(_top_ptr != NULL)
     {
-        temp = topPtr;
-        topPtr = topPtr->next;
+        temp = _top_ptr;
+        _top_ptr = _top_ptr->_next;
         delete temp;
     }
 }
 
 template <class ItemType>
-void StackType<ItemType>::Push(ItemType i)
+void StackType<ItemType>::push(ItemType i)
 {
-    if(IsFull())
+    if(is_full())
     {
         throw FullStack();
     }
-
     else
     {
-        NodeType<ItemType> * location;
+        NodeType<ItemType>* location;
         location = new NodeType<ItemType>;
-        location->info = i;
-        location->next = topPtr;
-        topPtr = location;
+        location->_info = i;
+        location->_next = _top_ptr;
+        _top_ptr = location;
     }
 }
 
 template <class ItemType>
-void StackType<ItemType>::Pop()
+void StackType<ItemType>::pop()
 {
-    if(IsEmpty())
+    if(is_empty())
     {
         throw EmptyStack();
     }
-
     else
     {
-        NodeType<ItemType> * temp;
-        temp = topPtr;
-        topPtr = topPtr->next;
+        NodeType<ItemType>* temp;
+        temp = _top_ptr;
+        _top_ptr = _top_ptr->_next;
         delete temp;
     }
 }
 
 template <class ItemType>
-ItemType StackType<ItemType>::Top()
+ItemType StackType<ItemType>::top()
 {
-    if(IsEmpty())
+    if(is_empty())
     {
         throw EmptyStack();
     }
-
     else
     {
-        return topPtr->info;
+        return _top_ptr->_info;
     }
 }
 
 template <class ItemType>
-bool StackType<ItemType>::IsEmpty()
+bool StackType<ItemType>::is_empty()
 {
-    return (topPtr == NULL);
+    return (_top_ptr == NULL);
 }
 
 template <class ItemType>
-bool StackType<ItemType>::IsFull()
+bool StackType<ItemType>::is_full()
 {
-    NodeType<ItemType> *location;
+    NodeType<ItemType>* location;
 
     try
     {

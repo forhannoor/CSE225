@@ -1,16 +1,16 @@
 #include "QueueType.cpp"
-#include <iostream>
+#include <cstdio>
 
 int main()
 {
     QueueType<int> q;
-    q.Enqueue(1);
-    q.Enqueue(2);
-    q.Enqueue(3);
-    q.Enqueue(4);
-    std::cout<<q.Dequeue();
-    std::cout<<q.Dequeue();
-    std::cout<<q.Dequeue();
-    std::cout<<q.Dequeue();
+    q.enqueue(1);
+    q.enqueue(2);
+    q.enqueue(3);
+    q.enqueue(4);
+    printf("%d\n", q.dequeue());
+    printf("%d\n", q.dequeue());
+    printf("%d\n", q.dequeue());
+    printf("%d\n", q.dequeue());
     return 0;
 }

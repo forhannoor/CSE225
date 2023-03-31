@@ -1,13 +1,12 @@
 #ifndef STACKTYPE_H
 #define STACKTYPE_H
-
 #include <iostream>
 
 template <class ItemType>
 struct NodeType
 {
-    ItemType info;
-    NodeType* next;
+    ItemType _info;
+    NodeType* _next;
 };
 
 class FullStack{};
@@ -19,13 +18,13 @@ class StackType
     public:
         StackType();
         ~StackType();
-        void Push(ItemType);
-        void Pop();
-        ItemType Top();
-        bool IsEmpty();
-        bool IsFull();
+        void push(ItemType);
+        void pop();
+        ItemType top();
+        bool is_empty();
+        bool is_full();
     private:
-        NodeType<ItemType>* topPtr;
+        NodeType<ItemType>* _top_ptr;
 };
 
-#endif // STACKTYPE_H
+#endif
