@@ -90,7 +90,7 @@ bool QueueType<ItemType>::IsFull()
         delete location;
         return false;
     }
-    catch(bad_alloc& exception)
+    catch(std::bad_alloc& exception)
     {
         return true;
     }

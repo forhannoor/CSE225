@@ -4,8 +4,6 @@
 #include <iostream>
 #include "queuetype.h"
 
-using namespace std;
-
 template <class ItemType>
 struct Node
 {
@@ -27,11 +25,11 @@ class BST
         bool isEmpty();
         bool isFull();
         int length();
-        ItemType retrieve(ItemType i);
-        void insertItem(ItemType i);
-        void deleteItem(ItemType i);
+        ItemType retrieve(ItemType item);
+        void insertItem(ItemType item);
+        void deleteItem(ItemType item);
         void print();
         Node<ItemType> getRoot();
 };
 
-#endif // BST_H
+#endif

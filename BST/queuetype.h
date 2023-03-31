@@ -2,7 +2,6 @@
 #define QUEUETYPE_H
 
 #include <iostream>
-using namespace std;
 
 template <class ItemType>
 struct NodeType
@@ -30,4 +29,4 @@ class QueueType
         NodeType<ItemType> *rear;
 };
 
-#endif // QUEUETYPE_H
+#endif

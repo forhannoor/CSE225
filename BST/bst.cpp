@@ -47,7 +47,7 @@ bool BST<ItemType>::isFull()
         delete b;
         return false;
     }
-    catch(bad_alloc e)
+    catch(std::bad_alloc e)
     {
         return true;
     }
@@ -76,24 +76,24 @@ Node<ItemType> BST<ItemType>::getRoot()
 }
 
 template <class ItemType>
-ItemType BST<ItemType>::retrieve(ItemType i)
+ItemType BST<ItemType>::retrieve(ItemType item)
 {
-    return retrieveItem(root, i);
+    return retrieveItem(root, item);
 }
 
 template <class ItemType>
-ItemType retrieveItem(BST<ItemType> *b, ItemType i)
+ItemType retrieveItem(BST<ItemType> *b, ItemType item)
 {
     ItemType x = NULL;
 
     if(b->getRoot() == NULL)
         return NULL;
 
-    else if(i < b->info)
-        return retrieveItem(b->left, i);
+    else if(item < b->info)
+        return retrieveItem(b->left, item);
 
-    else if(i > b->info)
-        return retrieveItem(b->right, i);
+    else if(item > b->info)
+        return retrieveItem(b->right, item);
 
     else
     {
