@@ -2,45 +2,45 @@
 
 UnsortedType::UnsortedType()
 {
-    length = 0;
-    listData = NULL;
-    currentPos = NULL;
+    _length = 0;
+    _list_data = NULL;
+    _current_pos = NULL;
 }
 
 UnsortedType::~UnsortedType()
 {
-    NodeType* tempPtr;
+    NodeType* temp_ptr;
 
-    while (listData != NULL)
+    while (_list_data != NULL)
     {
-        tempPtr = listData;
-        listData = listData->next;
-        delete tempPtr;
+        temp_ptr = _list_data;
+        _list_data = _list_data->_next;
+        delete temp_ptr;
     }
 }
 
-void UnsortedType::MakeEmpty()
+void UnsortedType::make_empty()
 {
-    NodeType *tempPtr;
+    NodeType* temp_ptr;
 
-    while(listData != NULL)
+    while(_list_data != NULL)
     {
-        tempPtr = listData;
-        listData = listData->next;
-        delete tempPtr;
+        temp_ptr = _list_data;
+        _list_data = _list_data->_next;
+        delete temp_ptr;
     }
 
-    length = 0;
+    _length = 0;
 }
 
-int UnsortedType::GetLength()
+int UnsortedType::get_length()
 {
-    return length;
+    return _length;
 }
 
-bool UnsortedType::isFull()
+bool UnsortedType::is_full()
 {
-    NodeType *location;
+    NodeType* location;
 
     try
     {
@@ -54,80 +54,75 @@ bool UnsortedType::isFull()
     }
 }
 
-ItemType UnsortedType::GetItem(ItemType item, bool &found)
+ItemType UnsortedType::get_item(ItemType item, bool& found)
 {
     found = false;
-    bool moreToSearch = false;
-    NodeType *location;
-    location = listData;
-    moreToSearch = (location != NULL);
+    bool can_search = false;
+    NodeType* location;
+    location = _list_data;
+    can_search = (location != NULL);
 
-    while(moreToSearch && !found)
+    while(can_search && !found)
     {
-        if(item.ComparedTo(location->info) == GREATER || item.ComparedTo(location->info) == LESS)
+        if(item.compared_to(location->_info) == GREATER || item.compared_to(location->_info) == LESS)
         {
-            location = location->next;
-            moreToSearch = (location != NULL);
+            location = location->_next;
+            can_search = (location != NULL);
         }
-
         else
         {
             found = true;
-            item = location->info;
+            item = location->_info;
         }
     }
 }
 
-void UnsortedType::InsertItem(ItemType i)
+void UnsortedType::insert_item(ItemType i)
 {
-    NodeType *location;
+    NodeType* location;
     location = new NodeType;
-    location->info = i;
-    location->next = listData;
+    location->_info = i;
+    location->_next = _list_data;
 }
 
-void UnsortedType::DeleteItem(ItemType i)
+void UnsortedType::delete_item(ItemType i)
 {
-    NodeType *location = listData;
-    NodeType *tempLocation;
+    NodeType* location = _list_data;
+    NodeType* temp_location;
 
-    if(i.ComparedTo(location->info) == EQUAL)
+    if(i.compared_to(location->_info) == EQUAL)
     {
-        tempLocation = location;
-        listData = listData->next;
+        temp_location = location;
+        _list_data = _list_data->_next;
     }
-
     else
     {
-        while(i.ComparedTo((location->next)->info) != EQUAL)
+        while(i.compared_to((location->_next)->_info) != EQUAL)
         {
-            location = location->next;
-            tempLocation = location->next;
-            location->next = (location->next)->next;
+            location = location->_next;
+            temp_location = location->_next;
+            location->_next = (location->_next)->_next;
         }
 
-        delete tempLocation;
-        --length;
+        delete temp_location;
+        --_length;
     }
 }
 
-void UnsortedType::ResetList()
+void UnsortedType::reset_list()
 {
-    currentPos = NULL;
+    _current_pos = NULL;
 }
 
-ItemType UnsortedType::GetNextItem()
+ItemType UnsortedType::get_next_item()
 {
     ItemType item;
 
-    if(currentPos == NULL)
-        currentPos = listData;
-
+    if(_current_pos == NULL)
+        _current_pos = _list_data;
     else
-    {
-        currentPos = currentPos->next;
-    }
+        _current_pos = _current_pos->_next;
 
-    item = currentPos->info;
+    item = _current_pos->_info;
     return item;
 }
