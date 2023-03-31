@@ -9,12 +9,12 @@ class ItemType
 {
     public:
         ItemType();
-        RelationType ComparedTo(ItemType i);
-        void Print();
-        void Initialize(int number);
+        RelationType compared_to(ItemType i);
+        void print();
+        void initialize(int number);
 
     private:
-        int value;
+        int _value;
 };
 
 #endif

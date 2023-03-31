@@ -6,19 +6,19 @@ class UnsortedType
 {
     public :
         UnsortedType();
-        void MakeEmpty();
-        bool IsFull();
-        int LengthIs();
-        void ResetList();
-        void GetNextItem(ItemType &i);
-        void InsertItem(ItemType i);
-        void RetrieveItem(ItemType &i, bool &found);
-        void DeleteItem(ItemType i);
+        void make_empty();
+        bool is_full();
+        int get_length();
+        void reset_list();
+        void get_next_item(ItemType& i);
+        void insert_item(ItemType i);
+        void retrieve_item(ItemType& i, bool& found);
+        void delete_item(ItemType i);
 
     private:
-        int length;
-        ItemType info[MAX_ITEMS];
-        int currentPos;
+        int _length;
+        ItemType _info[MAX_ITEMS];
+        int _current_pos;
 };
 
-#endif // UNSORTEDTYPE_H
+#endif

@@ -2,31 +2,31 @@
 
 UnsortedType::UnsortedType()
 {
-    length = 0;
-    currentPos = -1;
+    _length = 0;
+    _current_pos = -1;
 }
 
-void UnsortedType::MakeEmpty()
+void UnsortedType::make_empty()
 {
- 	length = 0;
+ 	_length = 0;
 }
 
-bool UnsortedType::IsFull()
+bool UnsortedType::is_full()
 {
-    return (length == MAX_ITEMS);
+    return (_length == MAX_ITEMS);
 }
 
-int UnsortedType::LengthIs()
+int UnsortedType::get_length()
 {
-    return length;
+    return _length;
 }
 
-void UnsortedType::ResetList()
+void UnsortedType::reset_list()
 {
-    currentPos = -1;
+    _current_pos = -1;
 }
 
-void UnsortedType::GetNextItem(ItemType &i)
+void UnsortedType::get_next_item(ItemType& i)
 {
-    i = info [++currentPos] ;
+    i = _info[++_current_pos];
 }

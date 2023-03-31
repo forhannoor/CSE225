@@ -2,33 +2,31 @@
 
 ItemType::ItemType()
 {
-    value = 0;
+    _value = 0;
 }
 
-RelationType ItemType::ComparedTo(ItemType i)
+RelationType ItemType::compared_to(ItemType i)
 {
-    if (value < i.value)
+    if (_value < i._value)
     {
         return LESS;
     }
-
-    else if (value > i.value)
+    else if (_value > i._value)
     {
         return GREATER;
     }
-
     else
     {
         return EQUAL;
     }
 }
 
-void ItemType::Initialize(int number)
+void ItemType::initialize(int number)
 {
-    value = number;
+    _value = number;
 }
 
-void ItemType::Print()
+void ItemType::print()
 {
-    printf("%d ", value);
+    printf("%d ", _value);
 }
