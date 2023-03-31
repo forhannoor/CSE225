@@ -15,7 +15,7 @@ void ItemType::print()
     printf("%d ", value);
 }
 
-int ItemType::getValue()
+int ItemType::get_value()
 {
     return value;
 }

@@ -1,24 +1,23 @@
 #ifndef STACKTYPE_H
 #define STACKTYPE_H
-
-#include "itemtype.h"
 #include <cstdio>
+#include "itemtype.h"
 
 class StackType
 {
     private:
-        ItemType items[MAX_ITEMS];
-        int top;
+        ItemType _items[MAX_ITEMS];
+        int _top;
 
     public:
         StackType();
-        bool isFull();
-        bool isEmpty();
+        bool is_full();
+        bool is_empty();
         void push(ItemType i);
         void pop();
-        ItemType Top();
-        void printStack();
-        int sumOdd();
+        ItemType top();
+        void print_stack();
+        int sum_odd();
 };
 
-#endif // STACKTYPE_H
+#endif

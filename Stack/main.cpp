@@ -12,15 +12,15 @@ int main()
     s.push(i);
     i.initialize(2);
     s.push(i);
-    s.printStack();
+    s.print_stack();
     i.initialize(3);
     s.push(i);
-    s.printStack();
+    s.print_stack();
     s.pop();
-    s.printStack();
+    s.print_stack();
     s.pop();
-    s.printStack();
-    s.Top().print();
-    printf("%d\n", s.sumOdd());
+    s.print_stack();
+    s.top().print();
+    printf("%d\n", s.sum_odd());
     return 0;
 }

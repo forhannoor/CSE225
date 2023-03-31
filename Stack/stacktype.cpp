@@ -2,62 +2,62 @@
 
 StackType::StackType()
 {
-    top = -1;
+    _top = -1;
 }
 
-bool StackType::isFull()
+bool StackType::is_full()
 {
-    return (top == MAX_ITEMS - 1);
+    return (_top == MAX_ITEMS - 1);
 }
 
-bool StackType::isEmpty()
+bool StackType::is_empty()
 {
-    return (top == -1);
+    return (_top == -1);
 }
 
 void StackType::push(ItemType i)
 {
-    if(! isFull())
+    if(! is_full())
     {
-        items[++top] = i;
+        _items[++_top] = i;
     }
 }
 
 void StackType::pop()
 {
-    if(! isEmpty())
+    if(! is_empty())
     {
-        --top;
+        --_top;
     }
 }
 
-ItemType StackType::Top()
+ItemType StackType::top()
 {
-    if(! isEmpty())
+    if(! is_empty())
     {
-        return items[top];
+        return _items[_top];
     }
 }
 
-void StackType::printStack()
+void StackType::print_stack()
 {
-    for(int i = top; i >= 0; --i)
+    for(int i = _top; i >= 0; --i)
     {
-        items[i].print();
+        _items[i].print();
     }
 
     printf("\n");
 }
 
-int StackType::sumOdd()
+int StackType::sum_odd()
 {
     int sum = 0;
 
-    for(int i = top; i >= 0; --i)
+    for(int i = _top; i >= 0; --i)
     {
-        if(items[i].getValue() % 2 == 1)
+        if(_items[i].get_value() % 2 == 1)
         {
-            sum += items[i].getValue();
+            sum += _items[i].get_value();
         }
     }
 
